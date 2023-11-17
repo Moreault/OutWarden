@@ -1,29 +1,25 @@
 ﻿namespace ToolBX.OutWarden;
 
-public readonly record struct TryGetResult<T>
+[Obsolete("Use Result<T> instead")]
+public readonly record struct TryGetResult<T>(bool IsSuccess, T? Value)
 {
     public static readonly TryGetResult<T> Failure = new(false);
 
-    public bool IsSuccess { get; init; }
-    public T? Value { get; init; }
+    public static TryGetResult<T> Success(T value) => new(true, value);
 
-    public TryGetResult(bool isSuccess, T? value)
+    public TryGetResult(T? value) : this(true, value)
     {
-        IsSuccess = isSuccess;
-        Value = value;
     }
 
-    public TryGetResult(T? value)
+    public TryGetResult(bool isSuccess) : this(isSuccess, default)
     {
-        IsSuccess = true;
-        Value = value;
-    }
-
-    public TryGetResult(bool isSuccess)
-    {
-        IsSuccess = isSuccess;
-        Value = default;
     }
 
     public override string ToString() => IsSuccess ? Value?.ToString() ?? string.Empty : string.Empty;
+
+    public void Deconstruct(out bool isSuccess, out T? value)
+    {
+        isSuccess = IsSuccess;
+        value = Value;
+    }
 }
