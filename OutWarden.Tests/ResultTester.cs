@@ -160,6 +160,35 @@ public abstract class ResultTester<T> : Tester
     }
 
     [TestMethod]
+    public void TryGetResultToResultConversionOperator_Always_Convert()
+    {
+        //Arrange
+        var instance = Fixture.Create<TryGetResult<T>>();
+
+        //Act
+        Result<T> result = instance;
+
+        //Assert
+        result.IsSuccess.Should().Be(instance.IsSuccess);
+        result.Value.Should().Be(instance.Value);
+        result.Message.Should().BeEmpty();
+    }
+
+    [TestMethod]
+    public void ResultToTryGetResultConversionOperator_Always_Convert()
+    {
+        //Arrange
+        var instance = Fixture.Create<Result<T>>();
+
+        //Act
+        TryGetResult<T> result = instance;
+
+        //Assert
+        result.IsSuccess.Should().Be(instance.IsSuccess);
+        result.Value.Should().Be(instance.Value);
+    }
+
+    [TestMethod]
     public void Equality_Always_EqualByValue() => Cases.TestValueEquality<Result<T>>(Fixture);
 
     [TestMethod]

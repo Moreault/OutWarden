@@ -51,4 +51,16 @@ public readonly record struct Result<T>()
         isSuccess = IsSuccess;
         value = Value;
     }
+
+    public static implicit operator Result<T>(TryGetResult<T> result) => new()
+    {
+        IsSuccess = result.IsSuccess,
+        Value = result.Value!
+    };
+
+    public static implicit operator TryGetResult<T>(Result<T> result) => new()
+    {
+        IsSuccess = result.IsSuccess,
+        Value = result.Value!
+    };
 }
