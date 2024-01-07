@@ -5,7 +5,7 @@ public abstract class ResultTester<T> : Tester
     protected abstract T DefaultValue { get; }
 
     [TestMethod]
-    public void Failure_WhenNoMessageIsSpecified_ReturnEmptyFailure() => Cases.WhenIsNullOrWhiteSpace(message =>
+    public void Failure_WhenNoMessageIsSpecified_ReturnEmptyFailure() => Ensure.WhenIsNullOrWhiteSpace(message =>
     {
         //Arrange
 
@@ -189,8 +189,11 @@ public abstract class ResultTester<T> : Tester
     }
 
     [TestMethod]
-    public void Equality_Always_EqualByValue() => Cases.TestValueEquality<Result<T>>(Fixture);
+    public void Ensure_ValueEquality() => Ensure.ValueEquality<Result<T>>(Fixture);
 
     [TestMethod]
-    public void Always_Serialize() => Cases.IsJsonSerializable<Result<T>>(Fixture);
+    public void Ensure_ConsistentHashCode() => Ensure.ConsistentHashCode<Result<T>>(Fixture);
+
+    [TestMethod]
+    public void Ensure_IsJsonSerializable() => Ensure.IsJsonSerializable<Result<T>>(Fixture);
 }
