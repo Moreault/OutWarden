@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutWarden", "OutWarden\OutWarden.csproj", "{4F304AB2-4B76-4C5A-A8D9-AE02F29C99D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutWarden", "OutWarden\OutWarden.csproj", "{4F304AB2-4B76-4C5A-A8D9-AE02F29C99D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutWarden.Tests", "OutWarden.Tests\OutWarden.Tests.csproj", "{CDF93634-9EBF-44C6-B2FE-3D32F274373E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4F304AB2-4B76-4C5A-A8D9-AE02F29C99D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F304AB2-4B76-4C5A-A8D9-AE02F29C99D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F304AB2-4B76-4C5A-A8D9-AE02F29C99D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDF93634-9EBF-44C6-B2FE-3D32F274373E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDF93634-9EBF-44C6-B2FE-3D32F274373E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDF93634-9EBF-44C6-B2FE-3D32F274373E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDF93634-9EBF-44C6-B2FE-3D32F274373E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
