@@ -13,7 +13,7 @@ public sealed class ResultSpecimenBuilder : ISpecimenBuilder
             if (type == resultOf)
             {
                 var random = new Random().Next(2);
-                var method = resultOf.GetSingleMethod(random == 0 ? "Success" : "Failure");
+                var method = resultOf.GetSingleMethod(random == 0 ? nameof(Result<int>.Success) : nameof(Result<int>.Failure));
 
                 var parameters = method.GetParameters().Select(x => ResolveParameter(x, context)).ToArray();
 
