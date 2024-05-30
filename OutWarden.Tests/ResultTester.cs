@@ -1,4 +1,6 @@
-﻿namespace OutWarden.Tests;
+﻿using ToolBX.Eloquentest.Dummies;
+
+namespace OutWarden.Tests;
 
 public abstract class ResultTester<T> : Tester
 {
@@ -22,7 +24,7 @@ public abstract class ResultTester<T> : Tester
     public void Failure_WhenMessageIsSpecified_ReturnFailureWithMessage()
     {
         //Arrange
-        var message = Fixture.Create<string>();
+        var message = Dummy.Create<string>();
 
         //Act
         var result = Result<T>.Failure(message);
@@ -52,7 +54,7 @@ public abstract class ResultTester<T> : Tester
     public void Success_WhenValueIsNotNull_ReturnValue()
     {
         //Arrange
-        var value = Fixture.Create<T>();
+        var value = Dummy.Create<T>();
 
         //Act
         var result = Result<T>.Success(value);
@@ -95,7 +97,7 @@ public abstract class ResultTester<T> : Tester
     public void ToString_WhenIsNonNullSuccess_ReturnValueAsString()
     {
         //Arrange
-        var value = Fixture.Create<T>();
+        var value = Dummy.Create<T>();
         var instance = Result<T>.Success(value);
 
         //Act
@@ -121,7 +123,7 @@ public abstract class ResultTester<T> : Tester
     public void ToString_WhenIsFailureWithMessage_ReturnMessage()
     {
         //Arrange
-        var message = Fixture.Create<string>();
+        var message = Dummy.Create<string>();
 
         //Act
         var result = Result<T>.Failure(message).ToString();
@@ -134,7 +136,7 @@ public abstract class ResultTester<T> : Tester
     public void Deconstruct_Always_Deconstruct()
     {
         //Arrange
-        var instance = Fixture.Create<Result<T>>();
+        var instance = Dummy.Create<Result<T>>();
 
         //Act
         var (isSuccess, value, message) = instance;
@@ -149,7 +151,7 @@ public abstract class ResultTester<T> : Tester
     public void DeconstructWithoutMessage_Always_Deconstruct()
     {
         //Arrange
-        var instance = Fixture.Create<Result<T>>();
+        var instance = Dummy.Create<Result<T>>();
 
         //Act
         var (isSuccess, value) = instance;
@@ -160,40 +162,11 @@ public abstract class ResultTester<T> : Tester
     }
 
     [TestMethod]
-    public void TryGetResultToResultConversionOperator_Always_Convert()
-    {
-        //Arrange
-        var instance = Fixture.Create<TryGetResult<T>>();
-
-        //Act
-        Result<T> result = instance;
-
-        //Assert
-        result.IsSuccess.Should().Be(instance.IsSuccess);
-        result.Value.Should().Be(instance.Value);
-        result.Message.Should().BeEmpty();
-    }
+    public void Ensure_ValueEquality() => Ensure.ValueEquality<Result<T>>(Dummy);
 
     [TestMethod]
-    public void ResultToTryGetResultConversionOperator_Always_Convert()
-    {
-        //Arrange
-        var instance = Fixture.Create<Result<T>>();
-
-        //Act
-        TryGetResult<T> result = instance;
-
-        //Assert
-        result.IsSuccess.Should().Be(instance.IsSuccess);
-        result.Value.Should().Be(instance.Value);
-    }
+    public void Ensure_ValueHashCode() => Ensure.ValueHashCode<Result<T>>(Dummy, JsonSerializerOptions.Default);
 
     [TestMethod]
-    public void Ensure_ValueEquality() => Ensure.ValueEquality<Result<T>>(Fixture);
-
-    [TestMethod]
-    public void Ensure_ValueHashCode() => Ensure.ValueHashCode<Result<T>>(Fixture);
-
-    [TestMethod]
-    public void Ensure_IsJsonSerializable() => Ensure.IsJsonSerializable<Result<T>>(Fixture);
+    public void Ensure_IsJsonSerializable() => Ensure.IsJsonSerializable<Result<T>>(Dummy);
 }

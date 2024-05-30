@@ -26,9 +26,3 @@ return Result<T>.Failure();
 
 return Result<T>.Failure("Something went wrong");
 ```
-
-> What sorcery is this?
--You, probably
-
-# What about TryGetResult<T>?
-It's going to be removed as of 3.0.0 in favor of `Result<T>`. 
