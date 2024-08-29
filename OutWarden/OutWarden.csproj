@@ -13,7 +13,7 @@
 		<RepositoryUrl>https://github.com/Moreault/OutWarden</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/Moreault/OutWarden</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Description>Protects your code from pesky 'out' keywords by providing a TryGetResult type</Description>
+		<Description>Simple and straightforward Result type</Description>
 		<PackageIcon>outwarden.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
