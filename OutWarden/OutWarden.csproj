@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Version>2.2.0-beta2</Version>
+		<Version>3.0.0-beta1</Version>
 		<RootNamespace>ToolBX.$(AssemblyName)</RootNamespace>
 		<PackageId>ToolBX.$(AssemblyName)</PackageId>
 		<Product>ToolBX.$(AssemblyName)</Product>
@@ -13,7 +13,7 @@
 		<RepositoryUrl>https://github.com/Moreault/OutWarden</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/Moreault/OutWarden</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Description>Protects your code from pesky 'out' keywords by providing a TryGetResult type</Description>
+		<Description>Simple and straightforward Result type</Description>
 		<PackageIcon>outwarden.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
