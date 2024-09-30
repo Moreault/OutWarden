@@ -19,7 +19,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="ToolBX.CoinFlip" Version="3.0.0" />
-		<PackageReference Include="WhiteJackalStudio.TestTools" Version="1.0.0-beta3" />
+		<PackageReference Include="WhiteJackalStudio.TestTools" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
