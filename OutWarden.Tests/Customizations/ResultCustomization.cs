@@ -33,14 +33,6 @@ public sealed class ResultCustomization : CustomizationBase
 
     protected override IDummyBuilder BuildMe(IDummy dummy, Type type)
     {
-        return dummy.Build<object>().FromFactory(() =>
-        {
-            var flip = Coin.Flip(nameof(Result.Success), nameof(Result.Failure))!;
-
-            if (flip == nameof(Result.Success))
-                return Result.Success();
-
-            return Result.Failure(dummy.Create<string>());
-        });
+        return dummy.Build<object>().FromFactory(() => Result.Failure(dummy.Create<string>()));
     }
 }
