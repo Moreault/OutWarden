@@ -1,7 +1,7 @@
 ﻿namespace OutWarden.Tests.Customizations;
 
 [AutoCustomization]
-public sealed class ResultCustomization : CustomizationBase
+public sealed class ResultOfTCustomization : CustomizationBase
 {
     protected override IEnumerable<Type> Types { get; } = [typeof(Result<>)];
 
@@ -23,5 +23,16 @@ public sealed class ResultCustomization : CustomizationBase
 
             return method.Invoke(null, [dummy.Create<string>()])!;
         });
+    }
+}
+
+[AutoCustomization]
+public sealed class ResultCustomization : CustomizationBase
+{
+    protected override IEnumerable<Type> Types { get; } = [typeof(Result)];
+
+    protected override IDummyBuilder BuildMe(IDummy dummy, Type type)
+    {
+        return dummy.Build<object>().FromFactory(() => Result.Failure(dummy.Create<string>()));
     }
 }

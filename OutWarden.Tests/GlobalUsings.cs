@@ -1,5 +1,6 @@
 global using System.Text.Json;
-global using FluentAssertions;
+global using ToolBX.AssertBox;
+global using ToolBX.AssertBox.Assertions;
 global using Microsoft.VisualStudio.TestTools.UnitTesting;
 global using ToolBX.CoinFlip;
 global using ToolBX.Dummies;
