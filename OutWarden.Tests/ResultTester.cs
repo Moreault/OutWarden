@@ -88,7 +88,6 @@ public abstract class ResultTester<T> : Tester
         if (typeof(T).IsClass)
             result.Should().BeEmpty();
         else
-            //TODO AssertBox should take nullable
             result.Should()!.Be(DefaultValue!.ToString());
     }
 
@@ -103,7 +102,6 @@ public abstract class ResultTester<T> : Tester
         var result = instance.ToString();
 
         //Assert
-        //TODO AssertBox should take nullable
         result.Should()!.Be(value!.ToString());
     }
 
